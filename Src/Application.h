@@ -3,6 +3,7 @@
 #include <string>
 #include <memory>
 #include "D3D12Header.h"
+//#include "Device.h"
 #include "glfw3.h"
 
 
@@ -78,7 +79,9 @@ namespace WIP3D
         InputModifiers mods;    ///< Keyboard modifiers
         uint32_t codepoint = 0; ///< UTF-32 codepoint from GLFW for Input event types
     };
-	class Window
+
+
+	class Window:public std::enable_shared_from_this<Window>
 	{
 	public:
         using SharedPtr = std::shared_ptr<Window>;
@@ -93,6 +96,7 @@ namespace WIP3D
         class ICallbacks
         {
         public:
+            virtual void HandleWindowInit(Window::SharedPtr WindowPointer) = 0;
             virtual void HandleWindowResize() = 0;
             virtual void HandleRenderFrame() = 0;
             virtual void HandleKeyboardEvent(const KeyboardEvent& keyEvent) = 0;
@@ -112,7 +116,7 @@ namespace WIP3D
         void SetWindowTitle(const std::string& title);
         const WindowHandle& GetApiHandle() const { return mApiHandle; }
         //Get the width of the window's client area
-        RBVector2I GetClientAreaSize() const { return { (int)mDesc.width, (int)mDesc.height }; }
+        RBVector2IU GetClientAreaSize() const { return RBVector2IU((int)mDesc.width, (int)mDesc.height ); }
         const Desc& GetDesc() const { return mDesc; }
     private:
         friend class ApiCallbacks;
@@ -132,10 +136,11 @@ namespace WIP3D
     class  WindowCallback : public WIP3D::Window::ICallbacks
     {
     public:
-        virtual void HandleWindowResize() override {}
-        virtual void HandleRenderFrame() override {}
-        virtual void HandleKeyboardEvent(const KeyboardEvent& keyEvent) override {}
-        virtual void HandleMouseEvent(const MouseEvent& mouseEvent) override {}
-        virtual void HandleDroppedFile(const std::string& filename) override {}
+        virtual void HandleWindowInit(Window::SharedPtr WindowPointer) override;
+        virtual void HandleWindowResize() override;
+        virtual void HandleRenderFrame() override;
+        virtual void HandleKeyboardEvent(const KeyboardEvent& keyEvent) override;
+        virtual void HandleMouseEvent(const MouseEvent& mouseEvent) override;
+        virtual void HandleDroppedFile(const std::string& filename) override;
     };
 };

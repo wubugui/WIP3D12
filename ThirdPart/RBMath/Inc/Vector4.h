@@ -17,6 +17,23 @@
 class RBVector2;
 class RBMatrix;
 class RBVector3;
+
+class RBVector4IU
+{
+public:
+	uint x, y, z, w;
+	FORCEINLINE RBVector4IU() = default;
+	FORCEINLINE RBVector4IU(uint ax, uint ay, uint az, uint aw) : x(ax), y(ay),z(az),w(aw) {}
+	FORCEINLINE RBVector4IU(const RBVector4IU& o) = default;
+};
+class RBVector4I
+{
+public:
+	i32 x, y, z, w;
+	FORCEINLINE RBVector4I() = default;
+	FORCEINLINE RBVector4I(i32 ax, i32 ay, i32 az, i32 aw) : x(ax), y(ay), z(az), w(aw) {}
+	FORCEINLINE RBVector4I(const RBVector4I& o) = default;
+};
 #if _MSC_VER < 1700
 ALIGN(16) class RBVector4
 #else

@@ -25,7 +25,14 @@ public:
   FORCEINLINE RBVector2I(i32 ax, i32 ay) : x(ax), y(ay){}
   FORCEINLINE RBVector2I(const RBVector2I& o) = default;
 };
-
+class RBVector2IU
+{
+public:
+	u32 x, y;
+	FORCEINLINE RBVector2IU() = default;
+	FORCEINLINE RBVector2IU(u32 ax, u32 ay) : x(ax), y(ay) {}
+	FORCEINLINE RBVector2IU(const RBVector2IU& o) = default;
+};
 class RBVector2
 {
 public:

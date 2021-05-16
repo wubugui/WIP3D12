@@ -25,10 +25,10 @@
  # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
  # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  **************************************************************************/
-#include "stdafx.h"
+#include "Util.h"
 #include "Formats.h"
 
-namespace Falcor
+namespace WIP3D
 {
     const FormatDesc kFormatDesc[] =
     {
@@ -116,15 +116,5 @@ namespace Falcor
         {ResourceFormat::BC7UnormSrgb,       "BC7UnormSrgb",    16,             4,  FormatType::UnormSrgb,  {false,  false, true, },        {4, 4},                                                  {128, 0, 0, 0  }},
     };
 
-    static_assert(arraysize(kFormatDesc) == (uint32_t)ResourceFormat::BC7UnormSrgb + 1, "Format desc table has a wrong size");
-
-    SCRIPT_BINDING(ResourceFormat)
-    {
-        // Resource formats
-        pybind11::enum_<ResourceFormat> resourceFormat(m, "ResourceFormat");
-        for (uint32_t i = 0; i < (uint32_t)ResourceFormat::Count; i++)
-        {
-            resourceFormat.value(to_string(ResourceFormat(i)).c_str(), ResourceFormat(i));
-        }
-    }
+    static_assert(ARRAY_COUNT(kFormatDesc) == (uint32_t)ResourceFormat::BC7UnormSrgb + 1, "Format desc table has a wrong size");
 }

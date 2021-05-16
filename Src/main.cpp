@@ -10,6 +10,16 @@ int main(int argc,char** argv)
 	WindowConfig.height = 720;
 	WindowConfig.resizableWindow = false;
 	WindowConfig.title = "Fuck";
+	//class dlldecl Sample : public Window::ICallbacks, public IFramework
+	//Sample.run(Render)
+	//Callback:
+	//	窗口尺寸变化
+	//	渲染Frame
+	//	处理键盘事件
+	//	处理鼠标事件
+	//	处理文件拖入事件
+	//Framework:
+	//	
 	WIP3D::WindowCallback WindowCallback_;
 	WIP3D::Window::SharedPtr Window_ = WIP3D::Window::Create(WindowConfig, &WindowCallback_);
 	Window_->MsgLoop();

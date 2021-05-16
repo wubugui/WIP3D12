@@ -4,6 +4,8 @@
 #include <comdef.h>
 #include <dxgi1_4.h>
 #include <dxgiformat.h>
+#include <memory>
+#include "../Formats.h"
 
 void TraceHResult(const std::string& msg, HRESULT hr);
 
@@ -23,6 +25,38 @@ namespace WIP3D
         ResourceFormat falcorFormat;
         DXGI_FORMAT dxgiFormat;
     };
+#define to_string_case(a) case a: return #a;
+    inline std::string to_string(D3D_FEATURE_LEVEL featureLevel)
+    {
+        switch (featureLevel)
+        {
+            to_string_case(D3D_FEATURE_LEVEL_9_1)
+            to_string_case(D3D_FEATURE_LEVEL_9_2)
+            to_string_case(D3D_FEATURE_LEVEL_9_3)
+            to_string_case(D3D_FEATURE_LEVEL_10_0)
+            to_string_case(D3D_FEATURE_LEVEL_10_1)
+            to_string_case(D3D_FEATURE_LEVEL_11_0)
+            to_string_case(D3D_FEATURE_LEVEL_11_1)
+            to_string_case(D3D_FEATURE_LEVEL_12_0)
+            to_string_case(D3D_FEATURE_LEVEL_12_1)
+            default: should_not_get_here(); return "";
+        }
+    }
+#undef to_string_case
+    struct DxgiFormatDesc
+    {
+        ResourceFormat falcorFormat;
+        DXGI_FORMAT dxgiFormat;
+    };
+
+    extern const DxgiFormatDesc kDxgiFormatDesc[];
+    /** Convert from Falcor to DXGI format
+    */
+    inline DXGI_FORMAT getDxgiFormat(ResourceFormat format)
+    {
+        assert(kDxgiFormatDesc[(uint32_t)format].falcorFormat == format);
+        return kDxgiFormatDesc[(uint32_t)format].dxgiFormat;
+    }
 
     // DXGI
     MAKE_SMART_COM_PTR(IDXGISwapChain3);

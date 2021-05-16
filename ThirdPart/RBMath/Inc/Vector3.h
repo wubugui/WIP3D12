@@ -13,6 +13,29 @@
  */
 class RBVector4;
 class RBVector2;
+
+class RBVector3I
+{
+public :
+	i32 x, y, z;
+	FORCEINLINE RBVector3I() :x(0), y(0), z(0) {}
+	FORCEINLINE RBVector3I(i32 a, i32 b, i32 c)
+		: x(a), y(b), z(c) {}
+	explicit FORCEINLINE RBVector3I(i32 a) : x(a), y(a), z(a) {}
+
+};
+
+class RBVector3IU
+{
+public:
+	u32 x, y, z;
+	FORCEINLINE RBVector3IU() :x(0), y(0), z(0) {}
+	FORCEINLINE RBVector3IU(u32 a, u32 b, u32 c)
+		: x(a), y(b), z(c) {}
+	explicit FORCEINLINE RBVector3IU(u32 a) : x(a), y(a), z(a) {}
+
+};
+
 class RBVector3
 {
 public:

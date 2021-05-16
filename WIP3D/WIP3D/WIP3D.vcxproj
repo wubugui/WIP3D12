@@ -20,12 +20,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Application.cpp" />
+    <ClCompile Include="..\..\Src\Common\FileSystem.cpp" />
     <ClCompile Include="..\..\Src\Common\Logger.cpp" />
     <ClCompile Include="..\..\Src\D3D12\D3D12Common.cpp" />
+    <ClCompile Include="..\..\Src\D3D12\D3D12Device.cpp" />
+    <ClCompile Include="..\..\Src\D3D12\D3D12Formats.cpp" />
     <ClCompile Include="..\..\Src\Device.cpp" />
     <ClCompile Include="..\..\Src\Formats.cpp" />
     <ClCompile Include="..\..\Src\Framework.cpp" />
+    <ClCompile Include="..\..\Src\GPUMemory.cpp" />
+    <ClCompile Include="..\..\Src\GraphicsCommon.cpp" />
+    <ClCompile Include="..\..\Src\GraphicsContext.cpp" />
     <ClCompile Include="..\..\Src\main.cpp" />
+    <ClCompile Include="..\..\Src\Sample.cpp" />
     <ClCompile Include="..\..\ThirdPart\RBMath\Src\Color32.cpp" />
     <ClCompile Include="..\..\ThirdPart\RBMath\Src\Colorf.cpp" />
     <ClCompile Include="..\..\ThirdPart\RBMath\Src\RBMath.cpp" />
@@ -34,14 +41,21 @@
   <ItemGroup>
     <ClInclude Include="..\..\Src\Application.h" />
     <ClInclude Include="..\..\Src\Common.h" />
+    <ClInclude Include="..\..\Src\Common\FileSystem.h" />
     <ClInclude Include="..\..\Src\Common\Logger.h" />
     <ClInclude Include="..\..\Src\D3D12Header.h" />
     <ClInclude Include="..\..\Src\D3D12\WIPD3D12.h" />
     <ClInclude Include="..\..\Src\Device.h" />
     <ClInclude Include="..\..\Src\Formats.h" />
     <ClInclude Include="..\..\Src\Framework.h" />
+    <ClInclude Include="..\..\Src\GPUMemory.h" />
+    <ClInclude Include="..\..\Src\GraphicsCommon.h" />
     <ClInclude Include="..\..\Src\GraphicsContext.h" />
+    <ClInclude Include="..\..\Src\GraphicsResource.h" />
+    <ClInclude Include="..\..\Src\GraphicsResView.h" />
+    <ClInclude Include="..\..\Src\Header.h" />
     <ClInclude Include="..\..\Src\RenderResource.h" />
+    <ClInclude Include="..\..\Src\Util.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -55,7 +69,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -68,7 +82,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
