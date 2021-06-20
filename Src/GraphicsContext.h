@@ -74,7 +74,7 @@ namespace WIP3D
             GpuFence::SharedPtr mpFence;
             Buffer::SharedPtr mpBuffer;
             CopyContext* mpContext;
-#ifdef FALCOR_D3D12
+#ifdef WIP_D3D12
             uint32_t mRowCount;
             ResourceFormat mTextureFormat;
             D3D12_PLACED_SUBRESOURCE_FOOTPRINT mFootprint;
@@ -379,7 +379,7 @@ namespace WIP3D
         */
         void resolveSubresource(const Texture::SharedPtr& pSrc, uint32_t srcSubresource, const Texture::SharedPtr& pDst, uint32_t dstSubresource);
 
-#ifdef FALCOR_D3D12
+#ifdef WIP_D3D12
         /** Submit a raytrace command. This function doesn't change the state of the render-context. Graphics/compute vars and state will stay the same.
         */
         void raytrace(RtProgram* pProgram, RtProgramVars* pVars, uint32_t width, uint32_t height, uint32_t depth);

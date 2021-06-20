@@ -4,9 +4,10 @@
 #include <unordered_set>
 #include <deque>
 #include <queue>
-#include "D3D12/WIPD3D12.h"
+
 #include "Formats.h"
 #include "GraphicsResView.h"
+
 //#include "GraphicsResource.h"
 namespace WIP3D
 {
@@ -129,6 +130,14 @@ namespace WIP3D
     struct DescriptorPoolApiData;
     struct DescriptorSetApiData;
 
+    // A descriptor is a relatively small block of data that fully describes an object to the GPU, in a GPU-specific opaque format. 
+    // There are several different types of descriptors—render target views (RTVs), depth stencil views (DSVs), shader resource views (SRVs), 
+    // unordered access views (UAVs), constant buffer views (CBVs), and samplers.
+    // Object descriptors do not need to be freed or released. Drivers do not attach any allocations to the creation of a descriptor. 
+    // The handle is unique across descriptor heaps(唯一即使来自不同的heap), so, for example, an array of handles can reference descriptors in multiple heaps.
+
+    // CBV, UAV and SRV entries can be in the same descriptor heap. However, Samplers entries cannot share 
+    // a heap with CBV, UAV or SRV entries. Typically, there are two sets of descriptor heaps, one for the common resources and the second for Samplers.
     class DescriptorPool : public std::enable_shared_from_this<DescriptorPool>
     {
     public:
@@ -213,4 +222,8 @@ namespace WIP3D
 
         std::priority_queue<DeferredRelease, std::vector<DeferredRelease>, std::greater<DeferredRelease>> mpDeferredReleases;
     };
+
+
+
+    
 }

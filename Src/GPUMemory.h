@@ -3,7 +3,7 @@
 
 #include <queue>
 #include <unordered_map>
-#include "D3D12/WIPD3D12.h"
+
 #include "GraphicsCommon.h"
 
 namespace WIP3D

@@ -8,6 +8,7 @@
 #include <vector>
 #include <set>
 #include "../Formats.h"
+#include "../GraphicsResource.h"
 
 
 void TraceHResult(const std::string& msg, HRESULT hr);
@@ -247,4 +248,11 @@ namespace WIP3D
 		D3D12DescriptorHeap::Allocation::SharedPtr pAllocation; // The heap-allocation. We always allocate a single contiguous block, even if there are multiple ranges.
 		std::vector<uint32_t> rangeBaseOffset;                  // For each range, we store the base offset into the allocation. We need it because many set calls accept a range index.
 	};
+
+	D3D12_RESOURCE_FLAGS getD3D12ResourceFlags(Resource::BindFlags flags);
+	D3D12_RESOURCE_STATES getD3D12ResourceState(Resource::State s);
+
+	extern const D3D12_HEAP_PROPERTIES kDefaultHeapProps;
+	extern const D3D12_HEAP_PROPERTIES kUploadHeapProps;
+	extern const D3D12_HEAP_PROPERTIES kReadbackHeapProps;
 }

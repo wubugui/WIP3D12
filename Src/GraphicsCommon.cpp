@@ -66,4 +66,7 @@ namespace WIP3D
         d.fenceValue = mpFence->getCpuValue();
         mpDeferredReleases.push(d);
     }
+
+
+   
 }

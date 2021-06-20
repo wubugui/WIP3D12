@@ -53,7 +53,7 @@ namespace WIP3D
         DepthStencil = 0x80,    ///< The resource will be bound as a depth-stencil buffer
         IndirectArg = 0x100,    ///< The resource will be bound as an indirect argument buffer
         Shared      = 0x200,    ///< The resource will be shared with a different adapter. Mostly useful for sharing resoures with CUDA
-#ifdef FALCOR_D3D12
+#ifdef WIP_D3D12
         AccelerationStructure = 0x80000000,  ///< The resource will be bound as an acceleration structure
 #endif
 
@@ -429,7 +429,7 @@ namespace WIP3D
         flag_to_str(RenderTarget);
         flag_to_str(DepthStencil);
         flag_to_str(IndirectArg);
-#ifdef FALCOR_D3D12
+#ifdef WIP_D3D12
         flag_to_str(AccelerationStructure);
 #endif
 #undef flag_to_str

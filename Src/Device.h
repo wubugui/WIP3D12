@@ -1,7 +1,7 @@
 #pragma once
 #include <array>
 #include <memory>
-#include "D3D12/WIPD3D12.h"
+
 #include "Formats.h"
 #include "GraphicsContext.h"
 #include "Application.h"

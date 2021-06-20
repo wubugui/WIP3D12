@@ -136,7 +136,7 @@ namespace WIP3D
 
 	const DescriptorPool::ApiHandle& DescriptorPool::getApiHandle(uint32_t heapIndex) const
 	{
-		assert(heapIndex < arraysize(mpApiData->pHeaps));
+		assert(heapIndex < ARRAYSIZE(mpApiData->pHeaps));
 		return mpApiData->pHeaps[heapIndex]->getApiHandle();
 	}
 }

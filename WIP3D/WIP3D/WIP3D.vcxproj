@@ -25,12 +25,14 @@
     <ClCompile Include="..\..\Src\D3D12\D3D12Common.cpp" />
     <ClCompile Include="..\..\Src\D3D12\D3D12Device.cpp" />
     <ClCompile Include="..\..\Src\D3D12\D3D12Formats.cpp" />
+    <ClCompile Include="..\..\Src\D3D12\D3D12Resource.cpp" />
     <ClCompile Include="..\..\Src\Device.cpp" />
     <ClCompile Include="..\..\Src\Formats.cpp" />
     <ClCompile Include="..\..\Src\Framework.cpp" />
     <ClCompile Include="..\..\Src\GPUMemory.cpp" />
     <ClCompile Include="..\..\Src\GraphicsCommon.cpp" />
     <ClCompile Include="..\..\Src\GraphicsContext.cpp" />
+    <ClCompile Include="..\..\Src\GraphicsResource.cpp" />
     <ClCompile Include="..\..\Src\main.cpp" />
     <ClCompile Include="..\..\Src\Sample.cpp" />
     <ClCompile Include="..\..\ThirdPart\RBMath\Src\Color32.cpp" />
@@ -162,7 +164,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;WIP_D3D12;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>..\..\ThirdPart\glfw332\include\GLFW;..\..\ThirdPart\RBMath\Inc;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>

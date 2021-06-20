@@ -15,7 +15,7 @@ namespace WIP3D
         Domain,         ///< Domain shader (AKA Tessellation evaluation shader)
         Compute,        ///< Compute shader
 
-#ifdef FALCOR_D3D12
+#ifdef WIP_D3D12
         RayGeneration,  ///< Ray generation shader
         Intersection,   ///< Intersection shader
         AnyHit,         ///< Any hit shader

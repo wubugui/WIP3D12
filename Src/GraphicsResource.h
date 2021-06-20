@@ -1,7 +1,7 @@
 #pragma once
 #include <memory>
 #include <unordered_map>
-#include "D3D12/WIPD3D12.h"
+#include "./D3D12/WIPD3D12.h"
 #include "Formats.h"
 #include "GraphicsResView.h"
 #include "Vector3.h"
@@ -59,7 +59,7 @@ namespace WIP3D
             Predication,
             PixelShader,
             NonPixelShader,
-#ifdef FALCOR_D3D12
+#ifdef WIP_D3D12
             AccelerationStructure,
 #endif
         };
@@ -135,6 +135,7 @@ namespace WIP3D
 
         /** Conversions to derived classes
         */
+        // dynamic用于向派生类转换
         std::shared_ptr<Texture> asTexture() { return this ? std::dynamic_pointer_cast<Texture>(shared_from_this()) : nullptr; }
         std::shared_ptr<Buffer> asBuffer() { return this ? std::dynamic_pointer_cast<Buffer>(shared_from_this()) : nullptr; }
 
@@ -763,4 +764,7 @@ namespace WIP3D
         }
 #undef t2s
     }
+
+
+
 }
