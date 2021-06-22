@@ -84,6 +84,9 @@
     <ClCompile Include="..\..\Src\D3D12\D3D12Resource.cpp">
       <Filter>源文件\D3D12</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Common.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Application.h">

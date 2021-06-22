@@ -123,6 +123,8 @@ namespace WIP3D
         mState.isGlobal = false;
         mState.perSubresource[pTexture->getSubresourceIndex(arraySlice, mipLevel)] = newState;
     }
+
+#if 0
     namespace
     {
         Texture::BindFlags updateBindFlags(Texture::BindFlags flags, bool hasInitData, uint32_t mipLevels, ResourceFormat format, const std::string& texType)
@@ -315,18 +317,6 @@ namespace WIP3D
         return getUAV(0);
     }
 
-#if _ENABLE_CUDA
-    void* Texture::getCUDADeviceAddress() const
-    {
-        throw std::exception("Texture::getCUDADeviceAddress() - unimplemented");
-    }
-
-    void* Texture::getCUDADeviceAddress(ResourceViewInfo const& viewInfo) const
-    {
-        throw std::exception("Texture::getCUDADeviceAddress() - unimplemented");
-    }
-#endif
-
     RenderTargetView::SharedPtr Texture::getRTV(uint32_t mipLevel, uint32_t firstArraySlice, uint32_t arraySize)
     {
         auto createFunc = [](Texture* pTexture, uint32_t mostDetailedMip, uint32_t mipCount, uint32_t firstArraySlice, uint32_t arraySize)
@@ -474,4 +464,5 @@ namespace WIP3D
         assert(d3d12ResourceAllocationInfo.SizeInBytes > 0);
         return d3d12ResourceAllocationInfo.SizeInBytes;
     }
+#endif
 }

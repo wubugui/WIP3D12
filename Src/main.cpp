@@ -1,3 +1,4 @@
+#if 1
 #include "Application.h"
 #include "Common/Logger.h"
 WIPLogger* g_logger = nullptr;
@@ -27,3 +28,18 @@ int main(int argc,char** argv)
 	g_logger->release();
 	return 0;
 }
+#else
+#include "Common.h"
+#include <iostream>
+using namespace std;
+int main(int argc, char** argv)
+{
+
+	int j = bitScanReverse(0x80);
+	cout << j << endl;
+	j = bitScanReverse(0x40);
+	cout << j << endl;
+
+	j++;
+}
+#endif

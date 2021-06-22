@@ -1,5 +1,5 @@
 #pragma once
-
+#include <cstdint>
 
 #ifdef assert
 #undef assert
@@ -45,3 +45,5 @@
     inline bool is_set(e_ val, e_ flag) { return (val & flag) != static_cast<e_>(0); } \
     inline void flip_bit(e_& val, e_ flag) { val = is_set(val, flag) ? (val & (~flag)) : (val | flag); }
 
+//获得第一个高位1的索引（从低位起的索引）
+extern uint32_t bitScanReverse(uint32_t a);

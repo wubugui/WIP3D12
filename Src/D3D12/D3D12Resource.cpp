@@ -129,7 +129,7 @@ namespace WIP3D
 
     Texture::~Texture()
     {
-        gpDevice->releaseResource(mApiHandle);
+      gpDevice->releaseResource(mApiHandle);
     }
 
 

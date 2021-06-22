@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Application.cpp" />
+    <ClCompile Include="..\..\Src\Common.cpp" />
     <ClCompile Include="..\..\Src\Common\FileSystem.cpp" />
     <ClCompile Include="..\..\Src\Common\Logger.cpp" />
     <ClCompile Include="..\..\Src\D3D12\D3D12Common.cpp" />
