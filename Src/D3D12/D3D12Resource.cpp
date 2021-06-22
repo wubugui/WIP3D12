@@ -126,4 +126,11 @@ namespace WIP3D
         if (res == S_OK) return pHandle;
         else return nullptr;
     }
+
+    Texture::~Texture()
+    {
+        gpDevice->releaseResource(mApiHandle);
+    }
+
+
 }

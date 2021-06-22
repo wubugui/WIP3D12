@@ -56,7 +56,6 @@
     <ClInclude Include="..\..\Src\GraphicsResource.h" />
     <ClInclude Include="..\..\Src\GraphicsResView.h" />
     <ClInclude Include="..\..\Src\Header.h" />
-    <ClInclude Include="..\..\Src\RenderResource.h" />
     <ClInclude Include="..\..\Src\Util.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
