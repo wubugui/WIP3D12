@@ -1,4 +1,5 @@
 #pragma once
+#include "D3D12/WIPD3D12.h"
 #include <vector>
 #include <memory>
 

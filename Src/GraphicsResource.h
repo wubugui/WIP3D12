@@ -1,6 +1,4 @@
 #pragma once
-#include <memory>
-#include <unordered_map>
 #include "./D3D12/WIPD3D12.h"
 #include "Formats.h"
 #include "GraphicsResView.h"
@@ -9,6 +7,8 @@
 #include "Vector4.h"
 #include "Vector2.h"
 #include "GPUMemory.h"
+#include <memory>
+#include <unordered_map>
 
 namespace WIP3D
 {

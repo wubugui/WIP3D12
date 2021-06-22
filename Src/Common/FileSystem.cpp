@@ -65,7 +65,6 @@ bool WIPFileSystem::set_current_dir(const std::string &path_name)
 #ifdef _WIN32
 	if (SetCurrentDirectory(get_native_path(path_name).c_str()) == FALSE)
 	{
-
 		LOG_ERROR("Failed to change directory to %s[%d]", path_name.c_str(), GetLastError());
 		return false;
 	}

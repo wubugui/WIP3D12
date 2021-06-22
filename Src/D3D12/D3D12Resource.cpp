@@ -1,3 +1,4 @@
+#include "../D3D12/WIPD3D12.h"
 #include "../Device.h"
 #include "../Common/FileSystem.h"
 
