@@ -35,7 +35,9 @@
     <ClCompile Include="..\..\Src\GraphicsContext.cpp" />
     <ClCompile Include="..\..\Src\GraphicsResource.cpp" />
     <ClCompile Include="..\..\Src\main.cpp" />
+    <ClCompile Include="..\..\Src\Program.cpp" />
     <ClCompile Include="..\..\Src\Sample.cpp" />
+    <ClCompile Include="..\..\Src\Shader.cpp" />
     <ClCompile Include="..\..\ThirdPart\RBMath\Src\Color32.cpp" />
     <ClCompile Include="..\..\ThirdPart\RBMath\Src\Colorf.cpp" />
     <ClCompile Include="..\..\ThirdPart\RBMath\Src\RBMath.cpp" />
@@ -57,6 +59,8 @@
     <ClInclude Include="..\..\Src\GraphicsResource.h" />
     <ClInclude Include="..\..\Src\GraphicsResView.h" />
     <ClInclude Include="..\..\Src\Header.h" />
+    <ClInclude Include="..\..\Src\Program.h" />
+    <ClInclude Include="..\..\Src\Shader.h" />
     <ClInclude Include="..\..\Src\Util.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
