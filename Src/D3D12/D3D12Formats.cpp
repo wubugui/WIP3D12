@@ -84,7 +84,7 @@ namespace WIP3D
         {ResourceFormat::BC7UnormSrgb,                  DXGI_FORMAT_BC7_UNORM_SRGB},
     };
 
-    static_assert(ARRAYSIZE(kDxgiFormatDesc) == (size_t)ResourceFormat::Count, "DXGI format desc table has a wrong size");
+    static_assert(ARRAY_COUNT(kDxgiFormatDesc) == (size_t)ResourceFormat::Count, "DXGI format desc table has a wrong size");
 
     ResourceBindFlags getFormatBindFlags(ResourceFormat format)
     {

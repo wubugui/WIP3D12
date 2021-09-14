@@ -7,6 +7,7 @@
 #include "Vector4.h"
 #include "Vector2.h"
 #include "GPUMemory.h"
+#include <stdint.h>
 #include <memory>
 #include <unordered_map>
 
@@ -16,9 +17,31 @@ namespace WIP3D
     class Buffer;
     class ParameterBlock;
 
+    
+
     class Resource : public std::enable_shared_from_this<Resource>
     {
     public:
+        /** The resource dimension
+      */
+        enum class Dimensions
+        {
+            Unknown,
+            Texture1D,
+            Texture2D,
+            Texture3D,
+            TextureCube,
+            Texture1DArray,
+            Texture2DArray,
+            Texture2DMS,
+            Texture2DMSArray,
+            TextureCubeArray,
+            AccelerationStructure,
+            Buffer,
+
+            Count
+        };
+
         using ApiHandle = ResourceHandle;
         using BindFlags = ResourceBindFlags;
 
@@ -95,6 +118,14 @@ namespace WIP3D
         */
         const ApiHandle& getApiHandle() const { return mApiHandle; }
 
+
+        /** Get a shared resource API handle.
+
+            The handle will be created on-demand if it does not already exist.
+            Throws if a shared handle cannot be created for this resource.
+        */
+        SharedResourceApiHandle getSharedApiHandle() const;
+
         /** Creates a shared resource API handle.
         */
         SharedResourceApiHandle createSharedApiHandle();
@@ -161,6 +192,7 @@ namespace WIP3D
         size_t mSize = 0;
         GpuAddress mGpuVaOffset = 0;
         std::string mName;
+        mutable SharedResourceApiHandle mSharedApiHandle = 0;
 
         mutable std::unordered_map<ResourceViewInfo, ShaderResourceView::SharedPtr, ViewInfoHashFunc> mSrvs;
         mutable std::unordered_map<ResourceViewInfo, RenderTargetView::SharedPtr, ViewInfoHashFunc> mRtvs;
@@ -364,11 +396,12 @@ namespace WIP3D
             \param[in] fileFormat Destination image file format (e.g., PNG, PFM, etc.)
             \param[in] exportFlags Save flags, see Bitmap::ExportFlags
         */
-       // void captureToFile(uint32_t mipLevel, uint32_t arraySlice, const std::string& filename, Bitmap::FileFormat format = Bitmap::FileFormat::PngFile, Bitmap::ExportFlags exportFlags = Bitmap::ExportFlags::None);
+        void captureToFile(uint32_t mipLevel, uint32_t arraySlice, const std::string& filename);
+           // , Bitmap::FileFormat format = Bitmap::FileFormat::PngFile, Bitmap::ExportFlags exportFlags = Bitmap::ExportFlags::None);
 
         /** Generates mipmaps for a specified texture object.
         */
-        void generateMips(RenderContext* pContext);
+        void generateMips(RenderContext* pContext, bool minMaxMips = false);
 
         /** In case the texture was loaded from a file, use this to set the file path
         */
@@ -377,10 +410,12 @@ namespace WIP3D
         /** In case the texture was loaded from a file, get the source file path
         */
         const std::string& getSourceFilename() const { return mSourceFilename; }
-
+        /** Returns the total number of texels across all mip levels and array slices.
+        */
+        uint64_t getTexelCount() const;
         /** Returns the size of the texture in bytes as allocated in GPU memory.
         */
-        uint32_t getTextureSizeInBytes();
+        uint64_t getTextureSizeInBytes() const;
 
     protected:
         Texture(uint32_t width, uint32_t height, uint32_t depth, uint32_t arraySize, uint32_t mipLevels, uint32_t sampleCount, ResourceFormat format, Type Type, BindFlags bindFlags);
@@ -765,6 +800,8 @@ namespace WIP3D
 #undef t2s
     }
 
+
+    
 
 
 }

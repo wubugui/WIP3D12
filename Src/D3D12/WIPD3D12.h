@@ -250,4 +250,22 @@ namespace WIP3D
 		D3D12DescriptorHeap::Allocation::SharedPtr pAllocation; // The heap-allocation. We always allocate a single contiguous block, even if there are multiple ranges.
 		std::vector<uint32_t> rangeBaseOffset;                  // For each range, we store the base offset into the allocation. We need it because many set calls accept a range index.
 	};
+
+	inline DXGI_FORMAT getTypelessFormatFromDepthFormat(ResourceFormat format)
+	{
+		switch (format)
+		{
+		case ResourceFormat::D16Unorm:
+			return DXGI_FORMAT_R16_TYPELESS;
+		case ResourceFormat::D32FloatS8X24:
+			return DXGI_FORMAT_R32_FLOAT_X8X24_TYPELESS;
+		case ResourceFormat::D24UnormS8:
+			return DXGI_FORMAT_R24G8_TYPELESS;
+		case ResourceFormat::D32Float:
+			return DXGI_FORMAT_R32_TYPELESS;
+		default:
+			assert(isDepthFormat(format) == false);
+			return kDxgiFormatDesc[(uint32_t)format].dxgiFormat;
+		}
+	}
 }

@@ -430,7 +430,7 @@ namespace WIP3D
 			UpdateWindowSize();
 		}
 
-		mpCallbacks->HandleWindowResize();
+		mpCallbacks->HandleWindowResize(shared_from_this(), width, height);
 	}
 
 	void Window::MsgLoop()
@@ -438,7 +438,7 @@ namespace WIP3D
 		mpCallbacks->HandleWindowInit(shared_from_this());
 		// Samples often rely on a size change event as part of initialization
 		// This would have happened from a WM_SIZE message when calling ShowWindow on Win32
-		mpCallbacks->HandleWindowResize();
+		// mpCallbacks->HandleWindowResize();
 
 		if (false)
 		{

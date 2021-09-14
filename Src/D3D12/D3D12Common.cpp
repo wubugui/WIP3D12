@@ -2,6 +2,8 @@
 #include "../Common/Logger.h"
 #include "../GraphicsCommon.h"
 #include "../Device.h"
+#include "../GPUMemory.h"
+#include "../Util.h"
 
 
 void TraceHResult(const std::string& msg, HRESULT hr)
@@ -125,7 +127,7 @@ namespace WIP3D
 		descCount[D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV] += mDesc.mDescCount[(uint32_t)Type::TextureUav] + mDesc.mDescCount[(uint32_t)Type::RawBufferUav] + mDesc.mDescCount[(uint32_t)Type::TypedBufferUav] + mDesc.mDescCount[(uint32_t)Type::StructuredBufferUav];
 
 		mpApiData = std::make_shared<DescriptorPoolApiData>();
-		for (uint32_t i = 0; i < ARRAYSIZE(mpApiData->pHeaps); i++)
+		for (uint32_t i = 0; i < ARRAY_COUNT(mpApiData->pHeaps); i++)
 		{
 			if (descCount[i])
 			{
@@ -136,7 +138,7 @@ namespace WIP3D
 
 	const DescriptorPool::ApiHandle& DescriptorPool::getApiHandle(uint32_t heapIndex) const
 	{
-		assert(heapIndex < ARRAYSIZE(mpApiData->pHeaps));
+		assert(heapIndex < ARRAY_COUNT(mpApiData->pHeaps));
 		return mpApiData->pHeaps[heapIndex]->getApiHandle();
 	}
 }

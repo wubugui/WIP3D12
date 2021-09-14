@@ -93,6 +93,24 @@
     <ClCompile Include="..\..\Src\Shader.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\PipeplineStateObject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\DescriptorSet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\D3D12\D3D12Context.cpp">
+      <Filter>源文件\D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\GraphicsResView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\D3D12\D3D12ResView.cpp">
+      <Filter>源文件\D3D12</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\D3D12\D3D12DescriptorSet.cpp">
+      <Filter>源文件\D3D12</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Application.h">
@@ -148,6 +166,18 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Shader.h">
       <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\PipeplineStateObject.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\DescriptorSet.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\RenderTarget.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\D3D12\D3D12Resource.h">
+      <Filter>源文件\D3D12</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

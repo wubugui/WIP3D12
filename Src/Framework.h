@@ -6,64 +6,7 @@
 
 namespace WIP3D
 {
-    enum class ShaderType
-    {
-        Vertex,         ///< Vertex shader
-        Pixel,          ///< Pixel shader
-        Geometry,       ///< Geometry shader
-        Hull,           ///< Hull shader (AKA Tessellation control shader)
-        Domain,         ///< Domain shader (AKA Tessellation evaluation shader)
-        Compute,        ///< Compute shader
-
-#ifdef WIP_D3D12
-        RayGeneration,  ///< Ray generation shader
-        Intersection,   ///< Intersection shader
-        AnyHit,         ///< Any hit shader
-        ClosestHit,     ///< Closest hit shader
-        Miss,           ///< Miss shader
-        Callable,       ///< Callable shader
-#endif
-        Count           ///< Shader Type count
-    };
-
-    /** Shading languages. Used for shader cross-compilation.
-    */
-    enum class ShadingLanguage
-    {
-        Unknown,        ///< Unknown language (e.g., for a plain .h file)
-        GLSL,           ///< OpenGL Shading Language (GLSL)
-        VulkanGLSL,     ///< GLSL for Vulkan
-        HLSL,           ///< High-Level Shading Language
-        Slang,          ///< Slang shading language
-    };
-
-    /** Framebuffer target flags. Used for clears and copy operations
-    */
-    enum class FboAttachmentType
-    {
-        None = 0,    ///< Nothing. Here just for completeness
-        Color = 1,    ///< Operate on the color buffer.
-        Depth = 2,    ///< Operate on the the depth buffer.
-        Stencil = 4,    ///< Operate on the the stencil buffer.
-
-        All = Color | Depth | Stencil ///< Operate on all targets
-    };
-
-    enum_class_operators(FboAttachmentType);
-
-
-    enum class ComparisonFunc
-    {
-        Disabled,       ///< Comparison is disabled
-        Never,          ///< Comparison always fails
-        Always,         ///< Comparison always succeeds
-        Less,           ///< Passes if source is less than the destination
-        Equal,          ///< Passes if source is equal to the destination
-        NotEqual,       ///< Passes if source is not equal to the destination
-        LessEqual,      ///< Passes if source is less than or equal to the destination
-        Greater,        ///< Passes if source is greater than to the destination
-        GreaterEqual,   ///< Passes if source is greater than or equal to the destination
-    };
+    
 
     /** Flags indicating what hot-reloadable resources have changed
    */
@@ -97,45 +40,7 @@ namespace WIP3D
 
 namespace WIP3D
 {
-    /** Converts ShaderType enum elements to a string.
-       \param[in] type Type to convert to string
-       \return Shader type as a string
-   */
-    inline const std::string to_string(ShaderType Type)
-    {
-        switch (Type)
-        {
-        case ShaderType::Vertex:
-            return "vertex";
-        case ShaderType::Pixel:
-            return "pixel";
-        case ShaderType::Hull:
-            return "hull";
-        case ShaderType::Domain:
-            return "domain";
-        case ShaderType::Geometry:
-            return "geometry";
-        case ShaderType::Compute:
-            return "compute";
-#ifdef WIP_D3D12
-        case ShaderType::RayGeneration:
-            return "raygeneration";
-        case ShaderType::Intersection:
-            return "intersection";
-        case ShaderType::AnyHit:
-            return "anyhit";
-        case ShaderType::ClosestHit:
-            return "closesthit";
-        case ShaderType::Miss:
-            return "miss";
-        case ShaderType::Callable:
-            return "callable";
-#endif
-        default:
-            assert(false);
-            return "";
-        }
-    }
+   
 }
 
 namespace WIP3D
@@ -253,7 +158,7 @@ namespace WIP3D
         virtual bool isVsyncEnabled() = 0;
     };
 
-    dlldecl extern IFramework* gpFramework;
+    IFramework* gpFramework;
 
     class IRenderer
     {

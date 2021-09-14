@@ -49,6 +49,7 @@ private:
 	void scan_dir_internal(std::vector<std::string>& result, std::string path, const std::string& startPath, const std::string& filter, unsigned int flags, bool recursive) const;
 
 public:
+	static string get_full_path(const std::string& path);
 	// Split a full path to path, filename and extension. The extension will be
 	// converted to lowercase by default.
 	static void split_path(const std::string &fullPath, std::string &pathName,

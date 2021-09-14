@@ -47,3 +47,5 @@
 
 //获得第一个高位1的索引（从低位起的索引）
 extern uint32_t bitScanReverse(uint32_t a);
+
+#define align_to(_alignment, _val) ((((_val) + (_alignment) - 1) / (_alignment)) * (_alignment))

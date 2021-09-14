@@ -24,9 +24,13 @@
     <ClCompile Include="..\..\Src\Common\FileSystem.cpp" />
     <ClCompile Include="..\..\Src\Common\Logger.cpp" />
     <ClCompile Include="..\..\Src\D3D12\D3D12Common.cpp" />
+    <ClCompile Include="..\..\Src\D3D12\D3D12Context.cpp" />
+    <ClCompile Include="..\..\Src\D3D12\D3D12DescriptorSet.cpp" />
     <ClCompile Include="..\..\Src\D3D12\D3D12Device.cpp" />
     <ClCompile Include="..\..\Src\D3D12\D3D12Formats.cpp" />
     <ClCompile Include="..\..\Src\D3D12\D3D12Resource.cpp" />
+    <ClCompile Include="..\..\Src\D3D12\D3D12ResView.cpp" />
+    <ClCompile Include="..\..\Src\DescriptorSet.cpp" />
     <ClCompile Include="..\..\Src\Device.cpp" />
     <ClCompile Include="..\..\Src\Formats.cpp" />
     <ClCompile Include="..\..\Src\Framework.cpp" />
@@ -34,10 +38,12 @@
     <ClCompile Include="..\..\Src\GraphicsCommon.cpp" />
     <ClCompile Include="..\..\Src\GraphicsContext.cpp" />
     <ClCompile Include="..\..\Src\GraphicsResource.cpp" />
+    <ClCompile Include="..\..\Src\GraphicsResView.cpp" />
     <ClCompile Include="..\..\Src\main.cpp" />
     <ClCompile Include="..\..\Src\Program.cpp" />
     <ClCompile Include="..\..\Src\Sample.cpp" />
     <ClCompile Include="..\..\Src\Shader.cpp" />
+    <ClCompile Include="..\..\Src\PipeplineStateObject.cpp" />
     <ClCompile Include="..\..\ThirdPart\RBMath\Src\Color32.cpp" />
     <ClCompile Include="..\..\ThirdPart\RBMath\Src\Colorf.cpp" />
     <ClCompile Include="..\..\ThirdPart\RBMath\Src\RBMath.cpp" />
@@ -49,7 +55,9 @@
     <ClInclude Include="..\..\Src\Common\FileSystem.h" />
     <ClInclude Include="..\..\Src\Common\Logger.h" />
     <ClInclude Include="..\..\Src\D3D12Header.h" />
+    <ClInclude Include="..\..\Src\D3D12\D3D12Resource.h" />
     <ClInclude Include="..\..\Src\D3D12\WIPD3D12.h" />
+    <ClInclude Include="..\..\Src\DescriptorSet.h" />
     <ClInclude Include="..\..\Src\Device.h" />
     <ClInclude Include="..\..\Src\Formats.h" />
     <ClInclude Include="..\..\Src\Framework.h" />
@@ -60,7 +68,9 @@
     <ClInclude Include="..\..\Src\GraphicsResView.h" />
     <ClInclude Include="..\..\Src\Header.h" />
     <ClInclude Include="..\..\Src\Program.h" />
+    <ClInclude Include="..\..\Src\RenderTarget.h" />
     <ClInclude Include="..\..\Src\Shader.h" />
+    <ClInclude Include="..\..\Src\PipeplineStateObject.h" />
     <ClInclude Include="..\..\Src\Util.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

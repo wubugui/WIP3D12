@@ -212,6 +212,14 @@ void WIPFileSystem::scan_dir_internal(std::vector<std::string>& result, std::str
 #endif
 }
 
+string WIPFileSystem::get_full_path(const std::string& path)
+{
+	TCHAR buff[MAX_PATH];
+	TCHAR** lppPart = { NULL };
+	GetFullPathName(path.c_str(), MAX_PATH, buff, lppPart);
+	return string(buff);
+}
+
 void string_replace(string &strBase, string strSrc, string strDes)
 {
 	string::size_type pos = 0;

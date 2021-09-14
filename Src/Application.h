@@ -97,7 +97,7 @@ namespace WIP3D
         {
         public:
             virtual void HandleWindowInit(Window::SharedPtr WindowPointer) = 0;
-            virtual void HandleWindowResize() = 0;
+            virtual void HandleWindowResize(Window::SharedPtr WindowPointer,int w,int h) = 0;
             virtual void HandleRenderFrame() = 0;
             virtual void HandleKeyboardEvent(const KeyboardEvent& keyEvent) = 0;
             virtual void HandleMouseEvent(const MouseEvent& mouseEvent) = 0;
@@ -137,10 +137,12 @@ namespace WIP3D
     {
     public:
         virtual void HandleWindowInit(Window::SharedPtr WindowPointer) override;
-        virtual void HandleWindowResize() override;
+        virtual void HandleWindowResize(Window::SharedPtr WindowPointer, int w, int h) override;
         virtual void HandleRenderFrame() override;
         virtual void HandleKeyboardEvent(const KeyboardEvent& keyEvent) override;
         virtual void HandleMouseEvent(const MouseEvent& mouseEvent) override;
         virtual void HandleDroppedFile(const std::string& filename) override;
+
+        Fbo::SharedPtr mpTargetFBO = nullptr;
     };
 };

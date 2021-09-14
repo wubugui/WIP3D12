@@ -8,8 +8,6 @@
 using SharedPtr = std::shared_ptr<T>;\
 using SharedConstPtr = std::shared_ptr<const T>;
 
-
-
 namespace WIP3D
 {
     struct LowLevelContextApiData;
@@ -74,13 +72,9 @@ namespace WIP3D
             GpuFence::SharedPtr mpFence;
             Buffer::SharedPtr mpBuffer;
             CopyContext* mpContext;
-#ifdef WIP_D3D12
             uint32_t mRowCount;
             ResourceFormat mTextureFormat;
             D3D12_PLACED_SUBRESOURCE_FOOTPRINT mFootprint;
-#elif defined(FALCOR_VK)
-            size_t mDataSize;
-#endif
         };
 
         virtual ~CopyContext();
@@ -192,7 +186,7 @@ namespace WIP3D
         */
         static SharedPtr create(CommandQueueHandle queue);
 
-#if 0
+#if 1
         /** Dispatch a compute task
             \param[in] dispatchSize 3D dispatch group size
         */
@@ -206,7 +200,7 @@ namespace WIP3D
             \param[in] pUav The UAV to clear
             \param[in] value The clear value
         */
-        void clearUAV(const UnorderedAccessView* pUav, const float4& value);
+        void clearUAV(const UnorderedAccessView* pUav, const RBVector4& value);
 
         /** Clear an unordered-access view
             \param[in] pUav The UAV to clear
@@ -268,7 +262,7 @@ namespace WIP3D
             \return A new object, or throws an exception if creation failed.
         */
         static SharedPtr create(CommandQueueHandle queue);
-#if 0
+#if 1
         /** Clear an FBO.
             \param[in] pFbo The FBO to clear
             \param[in] color The clear color for the bound render-targets
