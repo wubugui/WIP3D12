@@ -1,6 +1,7 @@
 #include "../D3D12/WIPD3D12.h"
 #include "../Device.h"
 #include "../Common/FileSystem.h"
+#include "../RenderTarget.h"
 #include "D3D12Resource.h"
 
 namespace WIP3D
@@ -398,5 +399,63 @@ namespace WIP3D
         d3d12ResourceAllocationInfo = pDevicePtr->GetResourceAllocationInfo(0, 1, &desc);
         assert(d3d12ResourceAllocationInfo.SizeInBytes > 0);
         return d3d12ResourceAllocationInfo.SizeInBytes;
+    }
+
+
+    Fbo::Fbo()
+    {
+        mColorAttachments.resize(getMaxColorTargetCount());
+    }
+
+    Fbo::~Fbo() = default;
+
+    const Fbo::ApiHandle& Fbo::getApiHandle() const
+    {
+        LOG_WARN("Fbo::getApiHandle() is not surpported on D3D12!");
+        return mApiHandle;
+    }
+
+    uint32_t Fbo::getMaxColorTargetCount()
+    {
+        return D3D12_SIMULTANEOUS_RENDER_TARGET_COUNT;
+    }
+
+    void Fbo::applyColorAttachment(uint32_t rtIndex)
+    {
+    }
+
+    void Fbo::applyDepthAttachment()
+    {
+    }
+
+    void Fbo::initApiHandle() const {}
+
+    RenderTargetView::SharedPtr Fbo::getRenderTargetView(uint32_t rtIndex) const
+    {
+        const auto& rt = mColorAttachments[rtIndex];
+        if (rt.pTexture)
+        {
+            return rt.pTexture->getRTV(rt.mipLevel, rt.firstArraySlice, rt.arraySize);
+        }
+        else
+        {
+            // TODO: mColorAttachments doesn't contain enough information to fully determine the view dimension. Assume 2D for now.
+            auto dimension = rt.arraySize > 1 ? RenderTargetView::Dimension::Texture2DArray : RenderTargetView::Dimension::Texture2D;
+            return RenderTargetView::getNullView(dimension);
+        }
+    }
+
+    DepthStencilView::SharedPtr Fbo::getDepthStencilView() const
+    {
+        if (mDepthStencil.pTexture)
+        {
+            return mDepthStencil.pTexture->getDSV(mDepthStencil.mipLevel, mDepthStencil.firstArraySlice, mDepthStencil.arraySize);
+        }
+        else
+        {
+            // TODO: mDepthStencil doesn't contain enough information to fully determine the view dimension.  Assume 2D for now.
+            auto dimension = mDepthStencil.arraySize > 1 ? DepthStencilView::Dimension::Texture2DArray : DepthStencilView::Dimension::Texture2D;
+            return DepthStencilView::getNullView(dimension);
+        }
     }
 }

@@ -111,6 +111,9 @@
     <ClCompile Include="..\..\Src\D3D12\D3D12DescriptorSet.cpp">
       <Filter>源文件\D3D12</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\RenderTarget.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Application.h">
@@ -144,9 +147,6 @@
       <Filter>源文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\GraphicsResource.h">
-      <Filter>源文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Header.h">
       <Filter>源文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\GraphicsResView.h">

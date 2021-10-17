@@ -41,6 +41,7 @@
     <ClCompile Include="..\..\Src\GraphicsResView.cpp" />
     <ClCompile Include="..\..\Src\main.cpp" />
     <ClCompile Include="..\..\Src\Program.cpp" />
+    <ClCompile Include="..\..\Src\RenderTarget.cpp" />
     <ClCompile Include="..\..\Src\Sample.cpp" />
     <ClCompile Include="..\..\Src\Shader.cpp" />
     <ClCompile Include="..\..\Src\PipeplineStateObject.cpp" />
@@ -66,7 +67,6 @@
     <ClInclude Include="..\..\Src\GraphicsContext.h" />
     <ClInclude Include="..\..\Src\GraphicsResource.h" />
     <ClInclude Include="..\..\Src\GraphicsResView.h" />
-    <ClInclude Include="..\..\Src\Header.h" />
     <ClInclude Include="..\..\Src\Program.h" />
     <ClInclude Include="..\..\Src\RenderTarget.h" />
     <ClInclude Include="..\..\Src\Shader.h" />
